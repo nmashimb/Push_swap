@@ -6,7 +6,7 @@
 #    By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/07 14:39:57 by nmashimb          #+#    #+#              #
-#    Updated: 2019/07/15 11:23:05 by nmashimb         ###   ########.fr        #
+#    Updated: 2019/07/26 13:14:21 by nmashimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,9 +63,6 @@ SRC = ft_memcpy.c\
 	  ft_bzero.c\
 	  ft_atoi.c\
 	  ft_itoa.c\
-	  ft_lstnew.c\
-	  ft_lstadd.c\
-	  ft_lstdelone.c\
 
 FLAGS = -Wall -Wextra -Werror
 OBJ = ft_memcpy.o\
@@ -120,9 +117,6 @@ OBJ = ft_memcpy.o\
 	  ft_bzero.o\
 	  ft_atoi.o\
 	  ft_itoa.o\
-	  ft_lstnew.o\
-	  ft_lstadd.o\
-	  ft_lstdelone.o\
 
 all: $(NAME)
 $(NAME): 
