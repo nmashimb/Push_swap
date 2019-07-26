@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/07/24 12:09:25 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/07/26 12:57:58 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 //ss(sa and sb at the same time)
 //rrr(rra and rrb at the same time)
 
-static void		push_swap(t_list	**hd)
+void		push_swap(t_list **head)
 {
-	if (ft_stack_len(*hd) <= 3)
+	if (ft_sort_check(*head) == 0)
 	{
-		ft_s_below_three(*hd);
+		if (ft_stack_len(*head) <= 3)
+		{
+			ft_s_below_three(head);
+		}
+		//if (ft_stack_len(*head) <= n)
 	}
 }
-
 
 int		main()
 {
@@ -31,18 +34,18 @@ int		main()
 	t_list	*t;
 	t_list	*s;
 
-	ft_push(&head1, 3);
 	ft_push(&head1, 1);
 	ft_push(&head1, 2);
+	ft_push(&head1, 3);
 //	ft_push(&head1, 4);
 	//ft_push(&head1, 5);
 	
-	ft_push(&head2, 9);
-	ft_push(&head2, 7);
-	ft_push(&head2, 8);
+	//ft_push(&head2, 9);
+	//ft_push(&head2, 7);
+	//ft_push(&head2, 8);
 	//ft_push(&head2, 6);
 
-	ft_sa(&head1);
+	//ft_sa(&head1);
 	//ft_ra(&head);
 	//ft_rra(&head);
 
@@ -52,11 +55,9 @@ int		main()
 	//ft_pa(&head1, &head2);
 	//ft_pa(&head1, &head2);
 
-	//t_list *x = ft_pop(&head);
-	//t_list	*x = ft_pop(&head2);
-	//int x = ft_peek(head);
-	int d = ft_sort_check(head1);	
-	printf("%d\n", d); //length
+	//ft_s_below_three(&head1);
+	push_swap(&head1);
+
 	printf("stack A\n");
 	t = head1;
 	while (t != NULL)
