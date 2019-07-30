@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/07/29 17:12:31 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/07/30 11:21:39 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list		*ft_create_a(t_list *head, char **argv, int argc)
 {
 	int		i;
+	int		c;
 	int		nums[argc - 1];
 
 	if (ft_is_argv_valid(argc, argv) == 0)
@@ -26,10 +27,11 @@ t_list		*ft_create_a(t_list *head, char **argv, int argc)
 		i++;
 	}
 	i = 0;
-	while (0 <= argc - 2)
+	c = argc - 2;
+	while (0 <= c)
 	{
 		ft_push(&head, nums[argc - 2]);
-		argc--;
+		c--;
 	}
 	return (head);
 }
