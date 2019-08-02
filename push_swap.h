@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/07/30 18:40:14 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/02 13:30:33 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ t_list				*ft_pop(t_list **head); //recheck
 int					ft_stack_len(t_list *head);
 int					ft_sort_check(t_list *head);
 int					ft_is_argv_valid(int argc, char **argcv);
+int					ft_duplicates(int curr_indx, char **argv);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
+
 
 //sort
 void				ft_s_below_three(t_list **hd);

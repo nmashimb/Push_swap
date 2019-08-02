@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/31 09:57:36 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/11 11:25:49 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+char	*ft_strnew(size_t size)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t	i;
+	char	*str;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
+	str = (char *)malloc(size + 1);
+	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (i < argc - 1)
+	while (i <= size + 1)
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		str[i] = 0;
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	return (str);
 }

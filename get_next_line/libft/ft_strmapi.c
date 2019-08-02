@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/03 12:34:26 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/11 12:31:22 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t	i;
+	size_t	len;
+	char	*tmp;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
+	if (s == NULL)
+		return (0);
 	i = 0;
-	while (i < argc - 1)
+	len = ft_strlen(s);
+	tmp = (char *)malloc(len + 1);
+	if (tmp == NULL)
+		return (0);
+	while (i < len)
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		tmp[i] = f(i, s[i]);
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	tmp[len] = '\0';
+	return (tmp);
 }

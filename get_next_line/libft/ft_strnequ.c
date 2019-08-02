@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/03 15:06:15 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/11 14:14:57 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t	i;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
+	if (!s1 && !s2)
+		return (1);
+	if (!s1 && s2)
+		return (0);
 	i = 0;
-	while (i < argc - 1)
+	while (i < n)
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		if (s1[i] != s2[i])
+			return (0);
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	return (1);
 }

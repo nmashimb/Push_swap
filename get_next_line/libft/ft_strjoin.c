@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/03 15:58:52 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/11 14:44:44 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	char	*str;
+	size_t	len;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
+	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	while (i < argc - 1)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc(len + 1);
+	if (!str)
+		return (NULL);
+	while (*s1)
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
+		*str = *s1;
+		s1++;
+		str++;
 	}
-	c = argc - 2;
-	while (0 <= c)
+	while (*s2)
 	{
-		ft_push(&head, nums[c]);
-		c--;
+		*str = *s2;
+		s2++;
+		str++;
 	}
-	return (head);
+	*str = '\0';
+	str = str - len;
+	return (str);
 }

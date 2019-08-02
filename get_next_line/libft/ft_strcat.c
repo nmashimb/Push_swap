@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/20 13:46:08 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/08 12:08:30 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t i;
+	size_t j;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
-	i = 0;
-	while (i < argc - 1)
+	j = 0;
+	i = ft_strlen(s1);
+	while (s2[j] != '\0')
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
+		s1[i + j] = s2[j];
+		j++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	s1[i + j] = '\0';
+	return (s1);
 }

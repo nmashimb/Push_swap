@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/29 09:36:10 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/14 18:35:34 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t		i;
+	size_t		dst_len;
+	size_t		src_len;
+	size_t		sum;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
 	i = 0;
-	while (i < argc - 1)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	sum = dst_len + src_len;
+	if (dstsize < dst_len)
+		return (dstsize + src_len);
+	while (src[i] && (dstsize > dst_len + 1))
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		dst[dst_len++] = src[i];
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	dst[dst_len] = '\0';
+	return (sum);
 }

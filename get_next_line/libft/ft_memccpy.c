@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/24 16:26:41 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/10 16:39:02 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t			i;
+	unsigned char	*s_des;
+	unsigned char	*s_src;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
 	i = 0;
-	while (i < argc - 1)
+	if (!dst && !src)
+		return (dst);
+	s_des = (unsigned char *)dst;
+	s_src = (unsigned char *)src;
+	while (i < n)
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		s_des[i] = s_src[i];
+		if (s_src[i] == (unsigned char)c)
+			return (&dst[i + 1]);
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	return (NULL);
 }

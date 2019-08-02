@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/05 14:39:36 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/11 17:27:51 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
-
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
-	i = 0;
-	while (i < argc - 1)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if ((n >= 0 && n <= 9))
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
+		ft_putchar_fd(n + '0', fd);
 	}
-	c = argc - 2;
-	while (0 <= c)
+	else if (n >= 10)
 	{
-		ft_push(&head, nums[c]);
-		c--;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	return (head);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
+	}
 }

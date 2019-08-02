@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/25 12:32:38 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/07/10 10:30:34 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
-{
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft/libft.h"
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
-	i = 0;
-	while (i < argc - 1)
-	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
-}
+# define BUFF_SIZE 32
+# define MAX_FD 1024 + 1
+
+int		get_next_line(const int fd, char **line);
+
+#endif

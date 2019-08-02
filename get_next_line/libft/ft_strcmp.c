@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/22 13:31:04 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/10 11:06:58 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t		i;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
 	i = 0;
-	while (i < argc - 1)
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

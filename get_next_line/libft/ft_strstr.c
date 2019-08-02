@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/05/28 10:32:48 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/14 15:49:47 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+	size_t i;
+	size_t n_len;
 
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
+	if (needle[0] == '\0')
+		return ((char *)haystack);
 	i = 0;
-	while (i < argc - 1)
+	n_len = ft_strlen(needle);
+	while (haystack[i] != '\0')
 	{
-		nums[i] = ft_atoi(argv[i + 1]);
+		if (haystack[i] == needle[0])
+		{
+			if (ft_strncmp(&haystack[i], needle, n_len) == 0)
+				return ((char *)&haystack[i]);
+		}
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	return (NULL);
 }

@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 16:50:22 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 14:06:03 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/06/03 13:00:50 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/06/14 18:45:07 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
-
-	if (ft_is_argv_valid(argc, argv) == 0)
-		return (NULL);
-	i = 0;
-	while (i < argc - 1)
-	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strcmp(s1, s2) != 0)
+		return (0);
+	else
+		return (1);
 }
