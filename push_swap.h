@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/05 12:55:23 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/05 17:06:50 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void				ft_sa(t_list **hd);
 void				ft_ra(t_list **hd); //func has 31 lines
 void				ft_rra(t_list **hd);
 void				ft_pa(t_list **hd1, t_list **hd2);
+void				ft_ss(t_list **hd1, t_list **hd2);
+void				ft_rr(t_list **hd1, t_list **hd2);
+void				ft_rrr(t_list **hd1, t_list **hd2);
 
 //list func
 void				ft_push(t_list	**head, int nbr);

@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/05 12:59:30 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/05 17:11:15 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,17 @@ int		main(int argc, char **argv)
 	if (argc == 2)
 		return (1);
 	head = ft_create_a(head, argv, argc);
-	if (head != NULL)
-		push_swap(&head);
-
+//	if (head != NULL)
+//		push_swap(&head);
+	char *arr_mvs[3] = {"rra", "sa", NULL};
+	t_list *head2 = NULL;
+	int j = 0;
+	while (arr_mvs[j] != NULL)
+	{
+			printf("%s\n\n\n", arr_mvs[j]);
+			j++;
+	}
+	ft_sorting_game(&head, &head2, arr_mvs);
 
 	t_list *t = head;
 	while (t != NULL)
