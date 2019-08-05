@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 18:09:15 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/06/10 11:58:21 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/08/05 12:47:00 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/08/05 12:55:19 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int		ft_toupper(int c)
+int		ft_isnumber(char *argv)
 {
-	int hold;
+	int	i;
 
-	hold = 0;
-	if (c >= 97 && c <= 122)
-		return (hold = c - 32);
-	return (c);
+	i = 0;
+	if (argv[0] == '-' || argv[0] == '+')
+		i++;
+	while (argv[i] != '\0')
+	{
+		if (!(ft_isdigit(argv[i])))
+			return (0);
+		i++;
+	}
+	return (1);
 }

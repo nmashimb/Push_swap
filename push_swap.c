@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 13:54:47 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:59:30 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		main(int argc, char **argv)
 	head = ft_create_a(head, argv, argc);
 	if (head != NULL)
 		push_swap(&head);
-
 
 
 	t_list *t = head;

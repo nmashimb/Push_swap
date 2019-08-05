@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/02 13:30:33 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:55:23 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "get_next_line/libft/libft.h"
 
 typedef struct		s_list
 {
@@ -40,6 +40,7 @@ int					ft_stack_len(t_list *head);
 int					ft_sort_check(t_list *head);
 int					ft_is_argv_valid(int argc, char **argcv);
 int					ft_duplicates(int curr_indx, char **argv);
+int					ft_isnumber(char *argv);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
 
 
