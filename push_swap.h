@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/05 17:06:50 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/06 10:45:16 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ t_list				*ft_create_a(t_list *head, char **argv, int argc);
 
 //sort
 void				ft_s_below_three(t_list **hd);
+void				ft_sorting_game(t_list **hd1, t_list **hd2, char **arr_moves);
 
 #endif 
