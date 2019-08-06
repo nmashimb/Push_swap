@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/06 10:45:16 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/06 15:05:45 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "get_next_line/libft/libft.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct		s_list
 {
 	struct s_list	*next;
 	int				content;	
 }					t_list;
+
+typedef struct		x_list
+{
+	struct x_list	*next;
+	char			*content;
+}					mvs_list;
 
 //movesss
 void				ft_sa(t_list **hd);
@@ -49,6 +56,6 @@ t_list				*ft_create_a(t_list *head, char **argv, int argc);
 
 //sort
 void				ft_s_below_three(t_list **hd);
-void				ft_sorting_game(t_list **hd1, t_list **hd2, char **arr_moves);
+void				ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead);
 
 #endif 
