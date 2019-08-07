@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	add_move(mvs_list **mhead, mvs_list **mtl, char *move)
+void	ft_add_move(mvs_list **mhead, mvs_list **mtl, char *move)
 {
 	mvs_list	*p;
 	mvs_list	*mtail;
