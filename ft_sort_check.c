@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 11:50:05 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/07 10:40:21 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/07 18:36:26 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_sort_check(t_list *head)
 	{
 		if (min > travers->content)
 			return (0);
+		min = travers->content;
 		travers = travers->next;
 	}
 	return (1);
