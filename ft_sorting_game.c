@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 16:57:26 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/06 15:24:26 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/07 10:45:09 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ void		ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead)
 		else if (ft_strcmp(t->content, "rrr"))
 			ft_rrr(&head1, &head2);
 		else
+		{
+			ft_putstr("Error\n");
 			return ;
+		}
 		t = t->next;
 	}
 	*hd1 = head1;
 	*hd2 = head2;
-	head1 = NULL;
-	head2 = NULL;
 }

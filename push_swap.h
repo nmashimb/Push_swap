@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/06 15:16:55 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/07 10:49:53 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void				ft_rr(t_list **hd1, t_list **hd2);
 void				ft_rrr(t_list **hd1, t_list **hd2);
 
 //list func
-void				ft_add_move(mvs_list **mhead, mvs_list **mtl, char *move);
+void				ft_add_move(mvs_list **mhead, mvs_list **mtl, char *line);
 void				ft_push(t_list	**head, int nbr);
 int					ft_peek(t_list *head);
 t_list				*ft_pop(t_list **head); //recheck
