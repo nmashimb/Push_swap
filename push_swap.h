@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:49:01 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 15:37:09 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int					ft_is_argv_valid(int argc, char **argcv);
 int					ft_duplicates(int curr_indx, char **argv);
 int					ft_isnumber(char *argv);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
-
+int					ft_is_moves_valid(mvs_list *mhead);
 
 //sort
 void				ft_s_below_three(t_list **hd);

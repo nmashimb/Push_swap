@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 13:42:52 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:16:10 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 15:35:08 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static void		checker(t_list	**hd1, mvs_list *mhead)
 	head2 = NULL;
 	head1 = *hd1;
 
-	/*if (ft_is_moves_valid(mhead))
+	if (ft_is_moves_valid(mhead))
 	{
-		ft_putstr("Error");
+		ft_putstr("Error\n");
 		return ;
-	}*/
+	}
 	if (ft_sort_check(head1) == 0 && mhead != NULL)
 	{
 		ft_sorting_game(&head1, &head2, mhead);
@@ -64,11 +64,11 @@ int		main(int argc, char **argv)
 
 
 	//will print the sorted stack a
-	t_list *t = head;
+/*	t_list *t = head;
 	while (t != NULL)
 	{
 		printf("%d\n", t->content);
 		t = t->next;
-	}
+	}*/
 	return (0);
 }

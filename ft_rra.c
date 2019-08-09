@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 18:15:38 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:47:22 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 15:36:06 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_rra(t_list **hd)
 	p = *hd;
 	if (head == NULL || head->next == NULL)
 	{
-		ft_putstr("list empty or list cannot swap!!!\n");
+		ft_putstr("Error\n");
 		return ;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/07 11:00:34 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 15:07:47 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int		main(int argc, char **argv)
 
 
 	//prints stack a
-	t_list *t = head;
+	/*t_list *t = head;
 	while (t != NULL)
 	{
 		printf("%d\n", t->content);
 		t = t->next;
-	}
+	}*/
 	return (0);
 }
