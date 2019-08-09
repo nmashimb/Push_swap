@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 16:57:26 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/07 18:45:51 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 12:31:15 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void		ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead)
 		else if ((ft_strcmp(t->content, "pa")) == 0)
 			ft_pa(&head1, &head2);
 		else if ((ft_strcmp(t->content, "sb")) == 0)
-			ft_sa(&head2);
+			ft_sb(&head2);
 		else if ((strcmp(t->content, "rb")) == 0)
-			ft_ra(&head2);
+			ft_rb(&head2);
 		else if ((ft_strcmp(t->content, "rrb")) == 0)
-			ft_rra(&head2);
+			ft_rrb(&head2);
 		else if ((ft_strcmp(t->content, "pb")) == 0)
-			ft_pa(&head2, &head1);
+			ft_pb(&head2, &head1);
 		else if ((ft_strcmp(t->content, "ss")) == 0)
 			ft_ss(&head1, &head2);
 		else if ((ft_strcmp(t->content, "rr")) == 0)

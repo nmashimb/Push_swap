@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 16:45:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/05 17:06:41 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 12:13:34 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_rr(t_list **hd1, t_list **hd2)
 	*hd2 = head2;
 	head1 = NULL;
 	head2 = NULL;
+	ft_putstr("rr\n");
 }

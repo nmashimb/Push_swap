@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_check.c                                    :+:      :+:    :+:   */
+/*   ft_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 11:50:05 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:02:45 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/08/09 12:16:05 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/08/09 12:17:31 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_check(t_list *head)
+void	ft_pb(t_list **hd1, t_list **hd2)
 {
-	int		min;
-	t_list	*travers;
-
-	if (head == NULL)
+	if (*hd2 == NULL)
 	{
-		ft_putstr("list empty!!!\n");
-		return (0);
+		ft_putstr("Error\n");
+		return ;
 	}
-	min = ft_peek(head);
-	travers = head;
-	while (travers != NULL)
-	{
-		if (min > travers->content)
-			return (0);
-		min = travers->content;
-		travers = travers->next;
-	}
-	return (1);
+	ft_push(hd1, (ft_pop(hd2)->content));
+	ft_putstr("pb\n");
 }
