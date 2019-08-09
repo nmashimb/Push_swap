@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:25:05 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 12:49:01 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ void				ft_sa(t_list **hd);
 void				ft_ra(t_list **hd); //func has 31 lines
 void				ft_rra(t_list **hd);
 void				ft_pa(t_list **hd1, t_list **hd2);
-void				ft_sb(t_list **hd);
-void				ft_rb(t_list **hd);
-void				ft_rrb(t_list **hd);
-void				ft_pb(t_list **hd1, t_list **hd2);
 void				ft_ss(t_list **hd1, t_list **hd2);
 void				ft_rr(t_list **hd1, t_list **hd2);
 void				ft_rrr(t_list **hd1, t_list **hd2);

@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 18:13:47 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:13:48 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/09 12:46:47 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_ra(t_list **hd)
 	head = *hd;
 	if (head == NULL || head -> next == NULL)
 	{
-		ft_putstr("list empty or cannot be swapped!!!\n");
+		ft_putstr("Error\n");
 		return ;
 	}
 	else if (head -> next -> next == NULL)
@@ -45,5 +45,4 @@ void		ft_ra(t_list **hd)
 	p1 = NULL;
 	p2 = NULL;
 	head = NULL;
-	ft_putstr("ra\n");
 }
