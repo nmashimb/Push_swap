@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 12:53:37 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 12:56:22 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/12 14:40:33 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_s_below_three(t_list **hd)
 	t_list *head;
 
 	head = *hd;
+	if (ft_sort_check(head))
+		return ;
 	if (ft_stack_len(head) == 2)
 	{
 		ft_sa(hd);

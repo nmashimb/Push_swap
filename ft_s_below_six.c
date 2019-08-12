@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 11:43:01 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/12 15:02:16 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/12 17:22:20 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,48 @@ void	ft_s_below_six(t_list **hd)
 	{
 		t = head;
 		count = 0;
-		while (ft_peek(head2) > t->content)
+		//swap stack b if necessary
+		if (ft_stack_len(head2) == 2 && (head2->content < head2->next->content))
+		{
+			ft_sa(&head2);
+			ft_putstr("sb\n");
+		}
+		if (ft_stack_len(head2) == 3)
+		{
+			if (head2->content > head2->next->content && head2->content < head2->next->next->content)
+			{
+				ft_rra(&head2);
+				ft_putstr("rrb\n");
+			}
+			if (head2->content < head2->next->content && head2->content > head2->next->next->content)
+			{
+				ft_sa(&head2);
+				ft_putstr("sb\n");
+			}
+			if (head2->content < head2->next->content && head2->content < head2->next->next->content)
+			{
+				if (head2->next->content > head2->next->next->content)
+				{
+					ft_sa(&head2);
+					ft_putstr("sb\n");
+				}
+				if (head2->next->content < head2->next->next->content)
+				{
+					ft_rra(&head2);
+					ft_putstr("rrb\n");
+				}
+			}
+		}
+		/////////////////////////////////////////////////////////////
+		while (ft_stack_len(head) > count && ft_peek(head2) > t->content)
 		{
 			count++;
 			t = t->next;
+		}
+		if (count == 0)
+		{
+			ft_pa(&head, &head2);
+			ft_putstr("pa\n");
 		}
 		if (count == 1)
 		{
@@ -45,7 +83,7 @@ void	ft_s_below_six(t_list **hd)
 			ft_sa(&head);
 			ft_putstr("sa\n");
 		}
-		else if (count >= 2)
+		if (count >= 2)
 		{
 			c = count - 1;
 			while (c >= 0)
