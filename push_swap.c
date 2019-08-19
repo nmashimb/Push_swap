@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/12 11:53:36 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/19 11:06:01 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void		push_swap(t_list **head)
 	{
 		if (ft_stack_len(*head) <= 3)
 			ft_s_below_three(head);
-		else if (ft_stack_len(*head) <= 6)
-			ft_s_below_six(head, &head2);
+		//else if (ft_stack_len(*head) <= 6)
+		//	ft_s_below_six(head, &head2);
 		//else if (ft_stack_len(*head))
 	}
 }
@@ -38,7 +38,8 @@ int		main(int argc, char **argv)
 	head = ft_create_a(head, argv, argc);
 	if (head == NULL)
 		return (0);
-	push_swap(&head);
+	//push_swap(&head);
+	ft_s_below_three(&head);
 
 
 	//prints stack a
