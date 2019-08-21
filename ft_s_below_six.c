@@ -6,12 +6,27 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 11:43:01 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/12 17:22:20 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/21 18:08:26 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+static void		ft_simple_sorting(t_list **hd)
+{
+	t_list	*h;
+   
+	h =	*hd;
+	if (ft_sort_check(h->next->next->next) && (h->content < h->next->next->content\
+		|| h->next->content < h->next->next->content))
+	{
+		ft_sa(&h);
+		ft_putstr("sa\n");
+	}
+	//if ()
+	*hd = h;
+}
 
 void	ft_s_below_six(t_list **hd)
 {
@@ -23,49 +38,19 @@ void	ft_s_below_six(t_list **hd)
 
 	head = *hd;
 	head2 = NULL;
-	while (ft_stack_len(head) != 3)
+	ft_simple_sorting(&head);
+	printf("top2 %d\n", head->content);
+	while (ft_stack_len(head) != 3 && ft_sort_check(head) != 1)
 	{
 		ft_pa(&head2, &head);
 		ft_putstr("pb\n");
 	}
-	ft_s_below_three(&head);
+	if (ft_stack_len(head) == 3 && ft_sort_check(head) != 1)
+		ft_s_below_three(&head);
 	while (head2 != NULL)
 	{
 		t = head;
 		count = 0;
-		//swap stack b if necessary
-		if (ft_stack_len(head2) == 2 && (head2->content < head2->next->content))
-		{
-			ft_sa(&head2);
-			ft_putstr("sb\n");
-		}
-		if (ft_stack_len(head2) == 3)
-		{
-			if (head2->content > head2->next->content && head2->content < head2->next->next->content)
-			{
-				ft_rra(&head2);
-				ft_putstr("rrb\n");
-			}
-			if (head2->content < head2->next->content && head2->content > head2->next->next->content)
-			{
-				ft_sa(&head2);
-				ft_putstr("sb\n");
-			}
-			if (head2->content < head2->next->content && head2->content < head2->next->next->content)
-			{
-				if (head2->next->content > head2->next->next->content)
-				{
-					ft_sa(&head2);
-					ft_putstr("sb\n");
-				}
-				if (head2->next->content < head2->next->next->content)
-				{
-					ft_rra(&head2);
-					ft_putstr("rrb\n");
-				}
-			}
-		}
-		/////////////////////////////////////////////////////////////
 		while (ft_stack_len(head) > count && ft_peek(head2) > t->content)
 		{
 			count++;
@@ -83,23 +68,37 @@ void	ft_s_below_six(t_list **hd)
 			ft_sa(&head);
 			ft_putstr("sa\n");
 		}
-		if (count >= 2)
+		if (count >= 2 && count != ft_stack_len(head))
 		{
-			c = count - 1;
-			while (c >= 0)
-			{
-				ft_ra(&head);
-				ft_putstr("ra\n");
-				c--;
-			}
-			//could add expr to keep top num of b max
-			ft_pa(&head, &head2);
-			ft_putstr("pa\n");
-			while (c < count - 1)
+			if (count > ft_stack_len(head) / 2)
 			{
 				ft_rra(&head);
 				ft_putstr("rra\n");
-				c++;
+				ft_pa(&head, &head2);
+				ft_putstr("pa\n");
+				while (ft_sort_check(head) != 1)
+				{
+					ft_ra(&head);
+					ft_putstr("ra\n");
+				}
+			}
+			else
+			{
+				c = count - 1;
+				while (c >= 0)
+				{
+					ft_ra(&head);
+					ft_putstr("ra\n");
+					c--;
+				}
+				ft_pa(&head, &head2);
+				ft_putstr("pa\n");
+				while (c < count - 1)
+				{
+					ft_rra(&head);
+					ft_putstr("rra\n");
+					c++;
+				}
 			}
 		}
 		if (count == ft_stack_len(head))
@@ -110,7 +109,9 @@ void	ft_s_below_six(t_list **hd)
 			ft_putstr("ra\n");
 		}
 	}
+	*hd = head;
 
+	
 	t = head;
 	ft_putstr("STACK A\n");
 	while (t != NULL)
