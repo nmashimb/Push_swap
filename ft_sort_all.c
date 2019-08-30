@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:20:31 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/28 17:17:54 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:58:46 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,60 +102,30 @@ static void		ft_count_to_position(t_list **head, t_list **head2)
 		count++;
 		t = t->next;
 	}
-	i = 0;
-	while (i < count)
-	{
-		ft_pa(head2, head);
-		ft_putstr("pb\n");
-		i++;
-	}
-	//rra as long as last item greater than top of b
-	while (ft_peek(*head2) < ft_peek_last_cont(*head) && ft_peek_last_cont(*head) != ft_find_max(*head))
+	if (count == 0)
 	{
 		ft_rra(head);
 		ft_putstr("rra\n");
-		t = *head;
-		if (ft_peek(*head) > t->next->content && t->next->content != ft_find_max(*head))
+	}
+	else if (count != 0 && ft_peek_last_cont(*head) != ft_find_max(*head))
+	{
+		i = 0;
+		while (i < count)
 		{
-			ft_sa(head);
-			ft_putstr("sa\n");
+			ft_pa(head2, head);
+			ft_putstr("pb\n");
+			i++;
+		}
+		if (ft_peek_last_cont(*head) != ft_find_max(*head))
+			while (ft_peek(*head2) < ft_peek_last_cont(*head) && ft_peek_last_cont(*head) != ft_find_max(*head))
+		ft_count_to_position(head, head2);
+		while (count > 0)
+		{
+			ft_pa(head, head2);
+			ft_putstr("pa\n");
+			count--;
 		}
 	}
-	while (count > 0)
-	{
-		ft_pa(head, head2);
-		ft_putstr("pa\n");
-		count--;
-	}
-}
-
-void			ft_cmp_top_sec_last(t_list	**head, t_list **head2)
-{
-	t_list	*h;
-
-	while (ft_peek(*head) > ft_peek_last_cont(*head) && (ft_peek_last_cont(*head) < ft_peek(*head2) || *head2 == NULL))
-	{// f > l < f(b) 
-		ft_rra(head);
-		ft_putstr("rra\n");
-	}
-	h = *head;
-	//clashes with the while loop above with 5 1 4 3 2
-	/*if (h->content < ft_peek_last_cont(h) < h->next->content) //1 f < l < s
-	{
-		ft_rra(head);
-		ft_putstr("rra\n");
-		ft_sa(head);
-		ft_putstr("sa\n");
-	}*/
-	if (h->content > ft_peek_last_cont(h) && ft_peek_last_cont(h) < h->next->content && ft_peek_last_cont(*head) != ft_find_max(*head)) //2 f > l < s
-	{
-		ft_sa(head);
-		ft_putstr("sa\n");
-		ft_rra(head);
-		ft_putstr("rra\n");
-	}
-	 if (h->content < ft_peek_last_cont(h) && ft_peek_last_cont(h) > h->next->content && ft_peek_last_cont(*head) != ft_find_max(*head)) //3 f < l > s
-		ft_count_to_position(head, head2);
 }
 
 void	ft_make_top_last(t_list	**head, t_list **head2)
@@ -167,9 +137,15 @@ void	ft_make_top_last(t_list	**head, t_list **head2)
 	//{
 		if (ft_find_max(h) == h->content)
 			ft_rra_times(head, 2);
-		ft_cmp_top_sec_last(head, head2);
-		ft_cmp_top_sec_last(head, head2);
-	//}
+		ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+	//	ft_count_to_position(head, head2);
+
+//	}
 }
 
 void	ft_sort_all(t_list	**hd, t_list **hd2)
