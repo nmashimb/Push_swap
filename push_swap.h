@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/09 15:37:09 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/02 11:13:21 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void				ft_add_move(mvs_list **mhead, mvs_list **mtl, char *line);
 void				ft_push(t_list	**head, int nbr);
 int					ft_peek(t_list *head);
 t_list				*ft_pop(t_list **head); //recheck
+int					ft_peek_last_cont(t_list *head);
+int					ft_find_max(t_list *head);
 
 //others
 int					ft_stack_len(t_list *head);
@@ -58,5 +60,8 @@ int					ft_is_moves_valid(mvs_list *mhead);
 //sort
 void				ft_s_below_three(t_list **hd);
 void				ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead);
+void				ft_count_to_position(t_list **head, t_list **head2);
+void				ft_rra_times(t_list **head, int times);
+t_list				*ft_make_max_third(t_list *head, int max);
 
 #endif 
