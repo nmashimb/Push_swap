@@ -38,15 +38,18 @@ static void		ft_count_above(t_list **head, t_list **head2, int count)
 static void		ft_count_below(t_list **head, int diff)
 {
 	int		i;
-	t_list	*h;
+	int		hol;
+	t_list		*h;
 
 	i = 0;
+	hol = ft_peek_last_cont(*head);
 	while (i < diff)
 	{
 		ft_rra(head);
 		ft_putstr("rra\n");
 		h = *head;
-		if (h->content == ft_find_max(*head))
+		//addddedededed
+		if (h->next->content == hol)
 		{
 			ft_sa(head);
 			ft_putstr("sa\n");
