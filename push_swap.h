@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/03 12:14:36 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:55:53 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct		x_list
 
 //movesss
 void				ft_sa(t_list **hd);
-void				ft_ra(t_list **hd); //func has 31 lines
+void				ft_ra(t_list **hd);
 void				ft_rra(t_list **hd);
 void				ft_pa(t_list **hd1, t_list **hd2);
 void				ft_ss(t_list **hd1, t_list **hd2);
@@ -44,7 +44,7 @@ void				ft_rrr(t_list **hd1, t_list **hd2);
 void				ft_add_move(mvs_list **mhead, mvs_list **mtl, char *line);
 void				ft_push(t_list	**head, int nbr);
 int					ft_peek(t_list *head);
-t_list				*ft_pop(t_list **head); //recheck
+int					ft_pop(t_list **head); //free's and returns 0 if empty
 int					ft_peek_last_cont(t_list *head);
 int					ft_find_max(t_list *head);
 
@@ -55,14 +55,15 @@ int					ft_is_argv_valid(int argc, char **argcv);
 int					ft_duplicates(int curr_indx, char **argv);
 int					ft_is_sorted_before_max(t_list *head);
 int					ft_isnumber(char *argv);
-t_list				*ft_create_a(t_list *head, char **argv, int argc);
 int					ft_is_moves_valid(mvs_list *mhead);
+t_list				*ft_create_a(t_list *head, char **argv, int argc);
 
 //sort
 void				ft_s_below_three(t_list **hd);
 void				ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead);
 void				ft_count_to_position(t_list **head, t_list **head2);
 void				ft_rra_times(t_list **head, int times);
+void				ft_sort_all(t_list **hd, t_list **hd2);
 t_list				*ft_make_max_third(t_list *head, int max);
 
 #endif 

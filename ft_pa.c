@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 18:18:15 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/12 14:49:37 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:40:58 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_pa(t_list **hd1, t_list **hd2)
 		ft_putstr("Error\n");
 		return ;
 	}
-	ft_push(hd1, (ft_pop(hd2)->content));
+	ft_push(hd1, ft_pop(hd2));
 }

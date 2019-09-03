@@ -6,13 +6,12 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/08/19 11:06:01 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/03 13:00:17 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
 void		push_swap(t_list **head)
 {
 	t_list	*head2;
@@ -22,9 +21,8 @@ void		push_swap(t_list **head)
 	{
 		if (ft_stack_len(*head) <= 3)
 			ft_s_below_three(head);
-		//else if (ft_stack_len(*head) <= 6)
-		//	ft_s_below_six(head, &head2);
-		//else if (ft_stack_len(*head))
+		else if (ft_stack_len(*head) >= 4)
+			ft_sort_all(head, &head2);
 	}
 }
 
@@ -38,15 +36,15 @@ int		main(int argc, char **argv)
 	head = ft_create_a(head, argv, argc);
 	if (head == NULL)
 		return (0);
-	//push_swap(&head);
-	ft_s_below_three(&head);
+	push_swap(&head);
 
 
-	//prints stack a
+	ft_putstr("STACK A\n");
 	t_list *t = head;
 	while (t != NULL)
 	{
-		printf("%d\n", t->content);
+		ft_putnbr(t->content);
+		ft_putstr("\n");
 		t = t->next;
 	}
 	return (0);
