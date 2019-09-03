@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/02 11:13:21 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:14:36 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					ft_stack_len(t_list *head);
 int					ft_sort_check(t_list *head);
 int					ft_is_argv_valid(int argc, char **argcv);
 int					ft_duplicates(int curr_indx, char **argv);
+int					ft_is_sorted_before_max(t_list *head);
 int					ft_isnumber(char *argv);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
 int					ft_is_moves_valid(mvs_list *mhead);

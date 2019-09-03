@@ -6,11 +6,34 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 10:43:04 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/02 10:54:47 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/03 11:54:47 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	ft_while_diff_not_zero(t_list **head, int diff, int hol_first)
+{
+	int		count;
+	t_list	*h;
+
+	count = 0;
+	while (diff > 0)
+	{
+		h = *head;
+		if (ft_peek_last_cont(*head) == ft_find_max(*head))
+			count = 1;
+		if (count == 1 && h->next->content != hol_first &&\
+			h->content > h->next->content)
+		{
+			ft_sa(head);
+			ft_putstr("sa\n");
+		}
+		ft_ra(head);
+		ft_putstr("ra\n");
+		diff--;
+	}
+}
 
 static void		ft_count_above(t_list **head, t_list **head2, int count)
 {
@@ -37,31 +60,27 @@ static void		ft_count_above(t_list **head, t_list **head2, int count)
 
 static void		ft_count_below(t_list **head, int diff)
 {
-	int		i;
-	int		hol;
+	int			i;
+	int			hol_first;
+	int			hol_last;
 	t_list		*h;
 
 	i = 0;
-	hol = ft_peek_last_cont(*head);
+	hol_first = ft_peek(*head);
+	hol_last = ft_peek_last_cont(*head);
 	while (i < diff)
 	{
 		ft_rra(head);
 		ft_putstr("rra\n");
 		h = *head;
-		//addddedededed
-		if (h->next->content == hol)
+		if (h->next->content == hol_last)
 		{
 			ft_sa(head);
 			ft_putstr("sa\n");
 		}
 		i++;
 	}
-	while (diff > 0)
-	{
-		ft_ra(head);
-		ft_putstr("ra\n");
-		diff--;
-	}
+	ft_while_diff_not_zero(head, diff, hol_first);
 }
 
 void			ft_count_to_position(t_list **head, t_list **head2)
