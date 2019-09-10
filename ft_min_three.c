@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted_before_max.c                          :+:      :+:    :+:   */
+/*   ft_min_three.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 11:59:40 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/10 16:03:06 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/09/10 10:46:08 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/09/10 16:50:03 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_is_sorted_before_max(t_list *head)
+int		ft_min_three(t_list *head, t_list *head2)
 {
-	while (head->content != ft_find_max(head))
+	t_list	*h;
+	int		min;
+	int		min2;
+	int		min3;
+
+	h = head;
+	min = ft_find_min(head, head2);
+	min2 = ft_min_two(head, head2);
+	min3 = ft_find_max(head);
+	while (h != NULL)
 	{
-		if (head->content > head->next->content)
-			return (0);
-		head = head->next;
+		if ((h->content != min && h->content != min2) && h->content < min3)
+			min3 = h->content;
+		h = h->next;
 	}
-	return (1);
+	return (min3);
 }
