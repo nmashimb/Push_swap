@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:20:31 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/12 15:37:41 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:18:31 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void	ft_sort_all(t_list **hd, t_list **hd2)
 			ft_sa(&head2);
 			ft_putstr("sb\n");
 		}
+	}
+	while (head2 != NULL)
+	{
+		ft_pa(&head, &head2);
+		ft_putstr("pa\n");
 	}
 
 	//head = *hd;
