@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 10:43:04 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/03 11:54:47 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/12 15:06:53 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void			ft_count_to_position(t_list **head, t_list **head2)
 	{
 		ft_rra(head);
 		ft_putstr("rra\n");
+		ft_while_mins(head, head2, ft_find_min(*head, *head2));
 	}
 	else if (count != 0 && ft_peek_last_cont(*head) != ft_find_max(*head))
 	{

@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 16:56:42 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/10 17:07:24 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/12 15:25:39 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void			ft_while_mins(t_list **head, t_list **head2, int min)
 
 	h = *head;
 	h2 = *head2;
-	while (ft_sort_check(h) == 0 && (h->content == min ||\
-		h->content == ft_min_two(h, h2))) //|| h->content == ft_min_three(h, h2)))
+	while (ft_sort_check(h) == 0 && h->content != ft_find_max(h)\
+			&& (h->content == min || h->content == ft_min_two(h, h2)))
 	{
 		ft_pa(&h2, &h);
 		ft_putstr("pb\n");
