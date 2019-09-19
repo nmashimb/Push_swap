@@ -6,7 +6,7 @@
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:26:16 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/12 17:05:15 by nmashimb         ###   ########.fr       */
+/*   Updated: 2019/09/19 18:03:11 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_list				*ft_create_a(t_list *head, char **argv, int argc);
 void				ft_s_below_three(t_list **hd);
 void				ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead);
 void				ft_count_to_position(t_list **head, t_list **head2);
+void				ft_count_from_b(t_list **head, t_list **head2);
 void				ft_rra_times(t_list **head, int times);
 void				ft_sort_all(t_list **hd, t_list **hd2);
 void				ft_make_max_third(t_list **head, t_list **head2, int max); // norm
