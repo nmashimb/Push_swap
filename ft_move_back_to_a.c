@@ -1,12 +1,12 @@
-/* w************************************************************************* */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_from_b.c                                  :+:      :+:    :+:   */
+/*   ft_move_back.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 18:01:24 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/19 18:06:22 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/09/20 09:52:42 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/09/20 10:12:44 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void		ft_count_below(t_list **head, t_list **head2, int diff)
 	ft_while_diff_not_zero(head, head2, diff + 1);
 }
 
-void			ft_count_to_position(t_list **head, t_list **head2)
+void			ft_move_back_to_a(t_list **head, t_list **head2)
 {
 	int		count;
 	t_list	*t;
@@ -75,12 +75,12 @@ void			ft_count_to_position(t_list **head, t_list **head2)
 		count++;
 		t = t->next;
 	}
-	if (*head != NULL && count == 0)
+	if (*head2 != NULL && count == 0)
 	{
 		ft_pa(head, head2);
 		ft_putstr("pa\n");
 	}
-	else if (count != 0 && ft_peek_last_cont(*head) != ft_find_max(*head))
+	else if (count != 0)
 	{
 		if (count > ft_stack_len(*head) / 2)
 			ft_count_below(head, head2, ft_stack_len(*head) - count);
