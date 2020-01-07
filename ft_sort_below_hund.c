@@ -64,7 +64,18 @@ static int     ft_get_position(t_list *head, int num)
     return (-1);
 }
 
-void    ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_chunks)
+static int      ft_getnumof_moves(int pos, t_list *head)
+{
+    int     movs;
+
+    if (pos <= ft_stack_len(head)/2)
+        movs = pos - 1;
+    else
+        movs = ft_stack_len(head) - pos + 1;
+    return (movs);
+}
+
+void    ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_chunks, int len)
 {
     int     start;
     int     end;
@@ -75,27 +86,27 @@ void    ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_ch
     i = 0;
     while (i < no_of_chunks)
     {
-        start = i * (ft_stack_len(*head)/no_of_chunks);
-        end = (i + 1) * (ft_stack_len(*head)/no_of_chunks) - 1;
+        start = i * (len/no_of_chunks);
+        end = (i + 1) * (len/no_of_chunks) - 1;
         while (start <= end)
         {
-            y = -1;
             x = ft_get_position(*head, arr[start]);
-            if (start != end){
-                start++;
-                y = ft_get_position(*head, arr[start]);
-            }
-            if (x < y && y != -1){ //make function
-                if (x <= ft_stack_len(*head)/2)
+            y = ft_get_position(*head, arr[end]);
+            if (ft_getnumof_moves(x, *head) <= ft_getnumof_moves(y, *head))
+            {
+                if (x <= ft_stack_len(*head)/2 || ft_stack_len(*head)/2 == 0)
                     ft_below_half(head, head2, x);
                 else
                     ft_above_half(head, head2, x);
+                start++;
             }
-            if (y > x){
+            else
+            {
                 if (y <= ft_stack_len(*head)/2)
                     ft_below_half(head, head2, y);
                 else
                     ft_above_half(head, head2, y);
+                end--;
             }
         }
         i++;
@@ -113,8 +124,8 @@ int     main(int argc, char **argv)
 
     head = ft_create_a(head, argv, argc);
     ft_sorted_array(argv, argc, a);
-    
-    ft_sort_below_hund(&head, &head2, a, 2);
+    int len = ft_stack_len(head);
+    ft_sort_below_hund(&head, &head2, a, 2, len);
 
    
     /*printf("ARRAY SORTED ");
