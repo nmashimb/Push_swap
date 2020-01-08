@@ -61,7 +61,12 @@ int					ft_duplicates(int curr_indx, char **argv);
 int					ft_is_sorted_before_max(t_list *head);
 int					ft_isnumber(char *argv);
 int					ft_is_moves_valid(mvs_list *mhead);
+int					ft_get_position(t_list *head, int num);
+int					ft_getnumof_moves(int pos, t_list *head);
+void				ft_above_halfof_b(t_list **head, t_list **head2, int count);
+void				ft_below_halfof_b(t_list **head, t_list **head2, int count);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
+
 
 //sort
 void				ft_s_below_three(t_list **hd);

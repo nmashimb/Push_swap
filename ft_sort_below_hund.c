@@ -18,15 +18,20 @@ static void		ft_below_half(t_list **head, t_list **head2, int count)
 	int		i;
 
 	i = 0;
-	while (i < count - 1)
-	{
+	while (i < count - 1){
 		ft_ra(head);
 		ft_putstr("ra\n");
 		i++;
 	}
+    //somewhere here we can call count to pos and replace whats below!
 	ft_pa(head2, head);
 	ft_putstr("pb\n");
-
+    if (ft_stack_len(*head2) > 2){
+        if ((*head2)->content > ft_peek_last_cont(*head2)){
+            ft_ra(head2);
+            ft_putstr("rb/n");
+        }
+    }
 }
 
 static void		ft_above_half(t_list **head, t_list **head2, int count)
@@ -35,47 +40,38 @@ static void		ft_above_half(t_list **head, t_list **head2, int count)
 
 	i = 0;
     count = ft_stack_len(*head) - count;
-	while (i < count + 1)
-	{
+
+	while (i < count + 1){
 		ft_rra(head);
 		ft_putstr("rra\n");
 		i++;
 	}
+    //somewhere here we can call count to postion and replace whats below!
 	ft_pa(head2, head);
 	ft_putstr("pb\n");
-}
-
-static int     ft_get_position(t_list *head, int num)
-{
-    int     count;
-    t_list  *trav;
-
-    count = 1;
-    trav = head;
-    while (trav != NULL)
-    {
-        if (num == trav->content)
-        {
-            return (count);
+    if (ft_stack_len(*head2) > 2){
+        if ((*head2)->content > ft_peek_last_cont(*head2)){
+            ft_ra(head2);
+            ft_putstr("rb/n");
         }
-        trav = trav->next;
-        count++;
     }
-    return (-1);
 }
 
-static int      ft_getnumof_moves(int pos, t_list *head)
+static void     ft_back_to_stack_a(t_list **head, t_list **head2)
 {
-    int     movs;
+    int     max_no_pos;
 
-    if (pos <= ft_stack_len(head)/2)
-        movs = pos - 1;
-    else
-        movs = ft_stack_len(head) - pos + 1;
-    return (movs);
+    while (*head2 != NULL)
+    {
+        max_no_pos = ft_get_position(*head2, ft_find_max(*head2));
+        if (max_no_pos <= ft_stack_len(*head2)/2 || ft_stack_len(*head2)/2 == 0)
+            ft_below_halfof_b(head, head2, max_no_pos);
+        else
+            ft_above_halfof_b(head, head2, max_no_pos);
+    }
 }
 
-void    ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_chunks, int len)
+void            ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_chunks, int len)
 {
     int     start;
     int     end;
@@ -111,6 +107,7 @@ void    ft_sort_below_hund(t_list **head, t_list **head2, int *arr, int no_of_ch
         }
         i++;
     }
+    ft_back_to_stack_a(head, head2);
 }
 
 int     main(int argc, char **argv)
@@ -127,16 +124,8 @@ int     main(int argc, char **argv)
     int len = ft_stack_len(head);
     ft_sort_below_hund(&head, &head2, a, 2, len);
 
-   
-    /*printf("ARRAY SORTED ");
-    int i = 0;
-    while (i < ft_stack_len(head))
-    {
-        printf("%d ", a[i]);
-        i++;
-    }*/
 
-    t_list *t = head;
+    /*t_list *t = head;
     printf("\nSTACK A ");
     while (t != NULL)
     {
@@ -150,6 +139,6 @@ int     main(int argc, char **argv)
     {
         printf("%d ", tt->content);
         tt = tt->next;
-    }
+    }*/
     return (0);
 }

@@ -18,7 +18,7 @@ SRC= ft_sa.c ft_ra.c ft_rra.c ft_pa.c ft_push.c ft_peek.c ft_pop.c ft_stack_len.
 	 ft_count_to_position.c ft_make_max_third.c ft_rra_times.c\
 	 ft_is_sorted_before_max.c ft_sort_all.c ft_find_min.c ft_min_two.c\
 	 ft_min_three.c ft_while_mins.c ft_move_back_to_a.c ft_median.c ft_sorted_array.c\
-	 ft_sort_below_hund.c
+	 ft_sort_below_hund.c ft_get_position.c ft_getnumof_moves.c ft_above_halfof_b.c ft_below_halfof_b.c
 
 FLAGS= -Wall -Wextra -Werror
 OBJ= ft_sa.o ft_ra.o ft_rra.o ft_pa.o ft_push.o ft_peek.o ft_pop.o ft_stack_len.o\
@@ -28,7 +28,7 @@ OBJ= ft_sa.o ft_ra.o ft_rra.o ft_pa.o ft_push.o ft_peek.o ft_pop.o ft_stack_len.
 	 ft_count_to_position.o ft_make_max_third.o ft_rra_times.o\
 	 ft_is_sorted_before_max.o ft_sort_all.o ft_find_min.o ft_min_two.o\
 	 ft_min_three.o ft_while_mins.o ft_move_back_to_a.o ft_median.o ft_sorted_array.o\
-	 ft_sort_below_hund.o
+	 ft_sort_below_hund.o ft_get_position.o ft_getnumof_moves.o ft_above_halfof_b.o ft_below_halfof_b.o
 
 all: $(NAME)
 $(NAME):
