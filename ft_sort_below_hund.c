@@ -23,10 +23,28 @@ static void		ft_below_half(t_list **head, t_list **head2, int count)
 		ft_putstr("ra\n");
 		i++;
 	}
+   /* if (ft_stack_len(*head2) >= 2)
+        ft_count_to_position(head, head2);
+    if (ft_stack_len(*head2) < 2){
+        ft_pa(head2, head);
+        ft_putstr("pb\n");
+        if (ft_stack_len(*head2) == 2){
+            if ((*head2)->content < (*head2)->next->content){
+                ft_sa(head2);
+                ft_putstr("sb\n");
+            }
+        }
+    }*/
+    
     //somewhere here we can call count to pos and replace whats below!
 	ft_pa(head2, head);
 	ft_putstr("pb\n");
     if (ft_stack_len(*head2) > 2){
+        if ((*head2)->content < (*head2)->next->content)
+        {
+            ft_sa(head2);
+            ft_putstr("sb/n");   
+        }
         if ((*head2)->content > ft_peek_last_cont(*head2)){
             ft_ra(head2);
             ft_putstr("rb/n");
@@ -40,16 +58,34 @@ static void		ft_above_half(t_list **head, t_list **head2, int count)
 
 	i = 0;
     count = ft_stack_len(*head) - count;
-
 	while (i < count + 1){
 		ft_rra(head);
 		ft_putstr("rra\n");
 		i++;
 	}
+    /*if (ft_stack_len(*head2) >= 2)
+        ft_count_to_position(head, head2);
+    if (ft_stack_len(*head2) < 2){
+        ft_pa(head2, head);
+        ft_putstr("pb\n");
+        if (ft_stack_len(*head2) == 2){
+            if ((*head2)->content < (*head2)->next->content){
+                ft_sa(head2);
+                ft_putstr("sb\n");
+            }
+        }
+    }*/
+    
     //somewhere here we can call count to postion and replace whats below!
 	ft_pa(head2, head);
 	ft_putstr("pb\n");
     if (ft_stack_len(*head2) > 2){
+        
+        if ((*head2)->content < (*head2)->next->content)
+        {
+            ft_sa(head2);
+            ft_putstr("sb/n");   
+        }
         if ((*head2)->content > ft_peek_last_cont(*head2)){
             ft_ra(head2);
             ft_putstr("rb/n");
@@ -122,7 +158,7 @@ int     main(int argc, char **argv)
     head = ft_create_a(head, argv, argc);
     ft_sorted_array(argv, argc, a);
     int len = ft_stack_len(head);
-    ft_sort_below_hund(&head, &head2, a, 2, len);
+    ft_sort_below_hund(&head, &head2, a, 5, len);
 
 
     /*t_list *t = head;

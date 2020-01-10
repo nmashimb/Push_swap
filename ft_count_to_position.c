@@ -63,10 +63,11 @@ void			ft_count_to_position(t_list **head, t_list **head2)
 
 	t = *head2;
 	count = 0;
-	while ((*head)->content > t->content)
+	while (t != NULL && (*head)->content < t->content)
 	{
-		count++;
 		t = t->next;
+	
+		count++;
 	}
 	if (count == 0)
 	{
