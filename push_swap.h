@@ -66,6 +66,7 @@ int					ft_getnumof_moves(int pos, t_list *head);
 void				ft_fill_stack(t_list **head, char **hol, int argc, int *snums);
 void				ft_above_halfof_b(t_list **head, t_list **head2, int count);
 void				ft_below_halfof_b(t_list **head, t_list **head2, int count);
+void        		ft_free_double_pointer(char **pntr);
 void				ft_update_chunk_index(t_list **head, int *arr, int *indx, int len);
 void				ft_fill_stack_and_update_argc(t_list **head, char **argv, int *argcadr, int *snums);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);

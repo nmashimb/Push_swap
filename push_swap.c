@@ -53,7 +53,6 @@ int		main(int argc, char **argv)
 			return (0);
 		ft_sorted_array(argc, snums);
 		push_swap(&head, snums);
-		free(argv);
 	}
 	else{
 		head = ft_create_a(head, argv, argc);

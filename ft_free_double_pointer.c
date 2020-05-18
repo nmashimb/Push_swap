@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_stack_and_update_argc.c                    :+:      :+:    :+:   */
+/*   ft_free_double_pointer.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 14:17:07 by nmashimb          #+#    #+#             */
-/*   Updated: 2019/09/20 15:31:09 by nmashimb         ###   ########.fr       */
+/*   Created: 2019/08/02 13:42:52 by nmashimb          #+#    #+#             */
+/*   Updated: 2019/08/09 15:35:08 by nmashimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_fill_stack_and_update_argc(t_list **head, char **argv, int *argcadr, int *snums)
+void        ft_free_double_pointer(char **pntr)
 {
-	int		i;
-	char	**hol;
-
-	hol = ft_strsplit(argv[1], ' ');
-	i = 0;
-	while (hol[i] != NULL){
-		hol[i] = ft_strtrim(hol[i]);
-		i++;
-	}
-	argv = hol;	
-	i++;
-	*argcadr =  i;
-	if (ft_is_argv_valid(i - 1, argv, 0) == 0)
-		return ;
-	ft_fill_stack(head, hol, i, snums);
-	ft_free_double_pointer(hol);
+    while (*pntr != NULL){
+        free(*pntr);
+        pntr++;
+    }
+    free(pntr);
+    pntr = NULL;
 }

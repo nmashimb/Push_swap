@@ -21,7 +21,7 @@ SRC= ft_sa.c ft_ra.c ft_rra.c ft_pa.c ft_push.c ft_peek.c ft_pop.c ft_stack_len.
 	 ft_get_position.c ft_getnumof_moves.c ft_above_halfof_b.c \
 	 ft_below_halfof_b.c ft_push_max_to_a.c ft_push_min_to_b.c ft_update_chunk_index.c \
 	 ft_sort_hundred.c ft_fill_stack.c ft_sort_five.c ft_sort_array_argv.c \
-	 ft_fill_stack_and_update_argc.c
+	 ft_fill_stack_and_update_argc.c ft_free_double_pointer.c
 
 FLAGS= -Wall -Wextra -Werror 
 EXEC1 = push_swap
@@ -38,7 +38,7 @@ OBJ= ft_sa.o ft_ra.o ft_rra.o ft_pa.o ft_push.o ft_peek.o ft_pop.o ft_stack_len.
 	 ft_get_position.o ft_getnumof_moves.o ft_above_halfof_b.o \
 	 ft_below_halfof_b.o ft_push_max_to_a.o ft_push_min_to_b.o ft_update_chunk_index.o \
 	 ft_sort_hundred.o ft_fill_stack.o ft_sort_five.o ft_sort_array_argv.o \
-	 ft_fill_stack_and_update_argc.o
+	 ft_fill_stack_and_update_argc.o ft_free_double_pointer.o
 
 all: $(NAME)
 $(NAME):
