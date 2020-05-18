@@ -56,26 +56,33 @@ void				ft_while_mins(t_list **head, t_list **head2, int min);
 //others
 int					ft_stack_len(t_list *head);
 int					ft_sort_check(t_list *head);
-int					ft_is_argv_valid(int argc, char **argcv);
+int					ft_is_argv_valid(int argc, char **argcv, int i);
 int					ft_duplicates(int curr_indx, char **argv);
 int					ft_is_sorted_before_max(t_list *head);
 int					ft_isnumber(char *argv);
 int					ft_is_moves_valid(mvs_list *mhead);
 int					ft_get_position(t_list *head, int num);
 int					ft_getnumof_moves(int pos, t_list *head);
+void				ft_fill_stack(t_list **head, char **hol, int argc, int *snums);
 void				ft_above_halfof_b(t_list **head, t_list **head2, int count);
 void				ft_below_halfof_b(t_list **head, t_list **head2, int count);
+void				ft_update_chunk_index(t_list **head, int *arr, int *indx, int len);
+void				ft_fill_stack_and_update_argc(t_list **head, char **argv, int *argcadr, int *snums);
 t_list				*ft_create_a(t_list *head, char **argv, int argc);
-
 
 //sort
 void				ft_s_below_three(t_list **hd);
+void				ft_sort_five(t_list **head, t_list **head2);
+void				ft_sort_all(t_list **hd, t_list **hd2);
+void				ft_sort_hundred(t_list **head, t_list **head2, int *arr, int chunks, int len);
 void				ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead);
 void				ft_count_to_position(t_list **head, t_list **head2);
 void				ft_move_back_to_a(t_list **head, t_list **head2);
 void				ft_rra_times(t_list **head, int times);
-void				ft_sort_all(t_list **hd, t_list **hd2);
 void				ft_make_max_third(t_list **head, t_list **head2, int max); // norm
-void				ft_sorted_array(char **argv, int argc, int *nums);
+void				ft_sorted_array(int argc, int *nums);
+void				ft_sort_array_argv(char **argv, int argc, int *nums);
+void				ft_push_max_to_a(t_list **head, t_list **head2);
+void				ft_push_min_to_b(t_list **head, t_list **head2);
 
 #endif 

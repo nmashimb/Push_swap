@@ -39,7 +39,6 @@ void	ft_s_below_six(t_list **hd)
 	head = *hd;
 	head2 = NULL;
 	ft_simple_sorting(&head);
-	printf("top2 %d\n", head->content);
 	while (ft_stack_len(head) != 3 && ft_sort_check(head) != 1)
 	{
 		ft_pa(&head2, &head);

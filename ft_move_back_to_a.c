@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_back.c                                     :+:      :+:    :+:   */
+/*   ft_move_back_to_a.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,10 +27,8 @@ static	void	ft_while_diff_not_zero(t_list **head, t_list **head2, int diff)
 static void		ft_count_above(t_list **head, t_list **head2, int count)
 {
 	int		i;
-	int		sub;
 
 	i = 0;
-	sub = 0;
 	while (i < count)
 	{
 		ft_ra(head);
@@ -50,10 +48,8 @@ static void		ft_count_above(t_list **head, t_list **head2, int count)
 static void		ft_count_below(t_list **head, t_list **head2, int diff)
 {
 	int			i;
-	int			count;
 
 	i = 0;
-	count = 0;
 	while (i < diff)
 	{
 		ft_rra(head);
@@ -63,25 +59,27 @@ static void		ft_count_below(t_list **head, t_list **head2, int diff)
 	ft_while_diff_not_zero(head, head2, diff + 1);
 }
 
-void			ft_move_back_to_a(t_list **head, t_list **head2)
-{
+void			ft_move_back_to_a(t_list **head, t_list **head2){
 	int		count;
 	t_list	*t;
 
 	t = *head;
 	count = 0;
-	while (*head2 != NULL && ft_peek(*head2) > t->content)
-	{
+	while (t != NULL && ft_peek(*head2) > t->content){
 		count++;
 		t = t->next;
 	}
-	if (*head2 != NULL && count == 0)
-	{
+	if (*head2 != NULL && count == 0){
 		ft_pa(head, head2);
 		ft_putstr("pa\n");
 	}
-	else if (count != 0)
-	{
+	else if (*head2 != NULL && count == ft_stack_len(*head)){
+		ft_pa(head, head2);
+		ft_putstr("pa\n");
+		ft_ra(head);
+		ft_putstr("ra\n");
+	}
+	else if (count != 0){
 		if (count > ft_stack_len(*head) / 2)
 			ft_count_below(head, head2, ft_stack_len(*head) - count);
 		else

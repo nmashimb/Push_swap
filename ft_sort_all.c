@@ -78,7 +78,7 @@ void	ft_sort_all(t_list **hd, t_list **hd2)
 	//124 mvs 10  18   1   6  16  12  20   3  13   7   8  14  11  19   4  15   9  17   2   5
 }
 
-int		main(int argc, char **argv)
+/*int		main(int argc, char **argv)
 {
 	t_list *head;
 	t_list *head2;
@@ -92,4 +92,4 @@ int		main(int argc, char **argv)
 	ft_sort_all(&head, &head2);
 
 	return 0;
-}
+}*/

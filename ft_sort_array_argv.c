@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_sort_array_argv.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,25 +12,27 @@
 
 #include "push_swap.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+void		ft_sort_array_argv(char **argv, int argc, int *nums)
 {
 	int		i;
-	int		c;
-	int		nums[argc - 1];
+    int     hold;
 
-	if (ft_is_argv_valid(argc, argv, 1) == 0)
-		return (NULL);	
 	i = 0;
 	while (i < argc - 1)
 	{
 		nums[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+    i = 0;
+    while (i < argc - 1)
+    {
+        if (nums[i] > nums[i + 1])
+        {
+            hold = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = hold;
+            i = -1;
+        }
+        i++;
+    }
 }

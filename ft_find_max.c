@@ -18,7 +18,7 @@ int		ft_find_max(t_list *head)
 	t_list	*t;
 
 	t = head;
-	max = 0;
+	max = ft_peek(head);
 	while (t != NULL)
 	{
 		if (max < t->content)

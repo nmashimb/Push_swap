@@ -42,11 +42,9 @@ void		ft_make_max_third(t_list **head, t_list **head2, int max)
 {
 	t_list	*h;
 	t_list	*h2;
-	int		min;
 
 	h = *head;
 	h2 = *head2;
-	min = ft_find_min(h, h2);
 	if (h->content == ft_find_max(h))
 		ft_rra_times(&h, 2);
 	else if (h->next->content == ft_find_max(h))

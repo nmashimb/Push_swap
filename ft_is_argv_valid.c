@@ -12,20 +12,18 @@
 
 #include "push_swap.h"
 
-int		ft_is_argv_valid(int argc, char **argv)
+int		ft_is_argv_valid(int argc, char **argv, int i)
 {
-	int		i;
-
-	i = 1;
 	while (i < argc)
 	{
 		if (!(ft_isnumber(argv[i])) || (ft_duplicates(i, argv) == 1)\
-		|| ft_atoi(argv[i]) > 2147483647 || (ft_atoi(argv[i])) < -2147483648)
+		|| ft_atoi(argv[i]) == -2147483648)
 		{
 			ft_putstr("Error\n");
 			return (0);
 		}
 		i++;
+		
 	}
 	return (1);
 }

@@ -15,10 +15,8 @@
 static void		ft_count_above(t_list **head, t_list **head2, int count)
 {
 	int		i;
-	int		sub;
 
 	i = 0;
-	sub = 0;
 	while (i < count)
 	{
 		ft_ra(head2);

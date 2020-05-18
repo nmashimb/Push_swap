@@ -22,14 +22,13 @@ static size_t	ft_start_ind(char const *s, size_t start)
 
 static size_t	ft_end_ind(char const *s, size_t end)
 {
-	while (end >= 0 && (s[end] == ' ' || s[end] == '\n' || s[end] == '\t'))
+	while (end != 0 && (s[end] == ' ' || s[end] == '\n' || s[end] == '\t'))
 		end--;
 	return (end);
 }
 
 char			*ft_strtrim(char const *s)
 {
-	size_t	i;
 	size_t	start;
 	size_t	end;
 	char	*str;
@@ -47,7 +46,6 @@ char			*ft_strtrim(char const *s)
 	str = (char *)malloc(end - start + 1 + 1);
 	if (!str)
 		return (0);
-	i = 0;
 	end = end - start + 1;
 	str = ft_strncpy(str, s + start, end);
 	str[end] = '\0';

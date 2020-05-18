@@ -45,11 +45,6 @@ void		ft_sorting_game(t_list **hd1, t_list **hd2, mvs_list *mhead)
 			ft_rr(&head1, &head2);
 		else if ((ft_strcmp(t->content, "rrr")) == 0)
 			ft_rrr(&head1, &head2);
-		else
-		{
-			ft_putstr("Error\n");
-			return ;
-		}
 		t = t->next;
 	}
 	*hd1 = head1;

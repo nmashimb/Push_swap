@@ -12,17 +12,11 @@
 
 #include "push_swap.h"
 
-void		ft_sorted_array(char **argv, int argc, int *nums)
+void		ft_sorted_array(int argc, int *nums)
 {
 	int		i;
     int     hold;
 
-	i = 0;
-	while (i < argc - 1)
-	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
     i = 0;
     while (i < argc - 1)
     {

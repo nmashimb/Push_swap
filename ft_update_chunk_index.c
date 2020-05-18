@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_a.c                                      :+:      :+:    :+:   */
+/*   ft_update_chunk_index.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmashimb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,25 +12,31 @@
 
 #include "push_swap.h"
 
-t_list		*ft_create_a(t_list *head, char **argv, int argc)
+static int      ft_get_number_indx(int *arr, int num, int len, int i)
 {
-	int		i;
-	int		c;
-	int		nums[argc - 1];
+    while (i < len)
+    {
+        if (arr[i] == num)
+            return (i);
+        i++;
+    }
+    return (0);
+}
 
-	if (ft_is_argv_valid(argc, argv, 1) == 0)
-		return (NULL);	
-	i = 0;
-	while (i < argc - 1)
-	{
-		nums[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-	c = argc - 2;
-	while (0 <= c)
-	{
-		ft_push(&head, nums[c]);
-		c--;
-	}
-	return (head);
+void            ft_update_chunk_index(t_list **head, int *arr, int *indx, int len)
+{
+    int     sgn;
+    t_list  *trav;
+
+    sgn = 0;
+    trav = *head;
+    while (trav != NULL){
+        if (sgn == 0 && (arr[indx[3]] <= trav->content && trav->content <= arr[indx[2]])){
+            sgn = 1;
+            indx[0] = ft_get_number_indx(arr, trav->content, len, indx[3]);
+        }
+        else if (arr[indx[3]] <= trav->content && trav->content <= arr[indx[2]])
+            indx[1] = ft_get_number_indx(arr, trav->content, len, indx[3]);
+        trav = trav->next;
+    }
 }

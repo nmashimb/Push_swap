@@ -11,11 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-//gets stack a and stack moves.
-//checks if stack is sorted
-//if not sorts.
+ 
 static void		checker(t_list	**hd1, mvs_list *mhead)
 {
 	t_list	*head2;
@@ -23,7 +19,7 @@ static void		checker(t_list	**hd1, mvs_list *mhead)
 	head2 = NULL;
 	head1 = *hd1;
 
-	if (ft_is_moves_valid(mhead))
+	if (mhead != NULL && ft_is_moves_valid(mhead))
 	{
 		ft_putstr("Error\n");
 		return ;
@@ -39,6 +35,8 @@ static void		checker(t_list	**hd1, mvs_list *mhead)
 	else if ((ft_sort_check(head1)) == 1)
 		ft_putstr("OK\n");
 	*hd1 = head1;
+	while (*hd1 != NULL)
+		ft_pop(hd1);
 }
 
 int		main(int argc, char **argv)
@@ -47,28 +45,25 @@ int		main(int argc, char **argv)
 	mvs_list	*mhead;
 	mvs_list	*mtail;
 	char		*line;
+	int			snums[500];
 
 	head = NULL;
 	mhead = NULL;
 	mtail = NULL;
 	line = NULL;
-	if (argc == 2)
-		return (1);
-	head = ft_create_a(head, argv, argc);
-	if (head == NULL)
+	if (argc == 2){
+		ft_fill_stack_and_update_argc(&head, argv, &argc, snums);
+		free(argv);
+		if (head == NULL)
+			return (0);
+	}
+	else{
+		head = ft_create_a(head, argv, argc);
+		if (head == NULL)
 		return (0);
+	};
 	while (get_next_line(0, &line) == 1)
 		ft_add_move(&mhead, &mtail, line);
 	checker(&head, mhead);
-	
-
-
-	//will print the sorted stack a
-/*	t_list *t = head;
-	while (t != NULL)
-	{
-		printf("%d\n", t->content);
-		t = t->next;
-	}*/
 	return (0);
 }
