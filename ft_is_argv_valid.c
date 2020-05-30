@@ -16,8 +16,7 @@ int		ft_is_argv_valid(int argc, char **argv, int i)
 {
 	while (i < argc)
 	{
-		if (!(ft_isnumber(argv[i])) || (ft_duplicates(i, argv) == 1)\
-		|| ft_atoi(argv[i]) == -2147483648)
+		if (!(ft_isnumber(argv[i])) || (ft_duplicates(i, argv) == 1))//	|| ft_atoi(argv[i]) == -2147483648)
 		{
 			ft_putstr("Error\n");
 			return (0);

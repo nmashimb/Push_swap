@@ -65,5 +65,7 @@ int		main(int argc, char **argv)
 	while (get_next_line(0, &line) == 1)
 		ft_add_move(&mhead, &mtail, line);
 	checker(&head, mhead);
+	free(mhead); // no seg
+	ft_strdel(&line);
 	return (0);
 }

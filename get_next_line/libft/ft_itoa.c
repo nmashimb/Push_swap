@@ -55,8 +55,8 @@ char			*ft_itoa(int n)
 	str = (char *)malloc(len + 1);
 	if (str == NULL)
 		return (0);
-	if (n == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
+	//if (n == -2147483648)
+	//	return (ft_strcpy(str, "-2147483648"));
 	n = put_negative(str, n);
 	assign_num(end, len - 1, n, str);
 	str[len] = '\0';

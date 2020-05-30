@@ -26,7 +26,7 @@ SRC= ft_sa.c ft_ra.c ft_rra.c ft_pa.c ft_push.c ft_peek.c ft_pop.c ft_stack_len.
 FLAGS= -Wall -Wextra -Werror 
 EXEC1 = push_swap
 EXEC2 = checker
-LIBS = .\push_swap.a .\get_next_line\get_next_line.a .\get_next_line\libft\libft.a
+LIBS = push_swap.a get_next_line/get_next_line.a get_next_line/libft/libft.a
 
 OBJ= ft_sa.o ft_ra.o ft_rra.o ft_pa.o ft_push.o ft_peek.o ft_pop.o ft_stack_len.o\
 	 ft_sort_check.o ft_s_below_three.o ft_create_a.o ft_is_argv_valid.o\
@@ -48,8 +48,8 @@ $(NAME):
 		make clean;
 		cd get_next_line; make; make clean;
 		cd get_next_line/libft; make; make clean;
-		gcc $(FLAGS) .\push_swap.c -o $(EXEC1) $(LIBS)
-		gcc $(FLAGS) .\checker.c -o $(EXEC2) $(LIBS)
+		gcc $(FLAGS) push_swap.c -o $(EXEC1) $(LIBS)
+		gcc $(FLAGS) checker.c -o $(EXEC2) $(LIBS)
 clean:
 		rm -f $(OBJ)
 fclean: clean
